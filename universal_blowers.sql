@@ -17,9 +17,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `universal_blowers`
---
+-- Step 1: Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS `universal_blowers`;
+
+-- Step 2: Select the database
+USE `universal_blowers`;
 
 -- --------------------------------------------------------
 
@@ -27,7 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `machine`
 --
 
-CREATE TABLE `machine` (
+CREATE TABLE IF NOT EXISTS `machine` (
   `machines` text NOT NULL,
   `capacity` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -40,17 +42,17 @@ CREATE TABLE `machine` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `username` text NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `user`
---
-
+-- Step 3: Insert data into `user` table
+-- Note: Avoid using weak passwords like '123'
 INSERT INTO `user` (`username`, `password`) VALUES
 ('123', '123');
+
+-- Step 4: Commit the transaction
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
