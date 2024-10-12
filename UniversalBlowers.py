@@ -329,4 +329,3 @@ reg_bttn = Button(frame, text="Register", font=("Candara", 11, "bold"), width=10
 reg_bttn.grid(row=8, column=1, pady=5)
 frame.pack()
 window.mainloop()
-
